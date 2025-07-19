@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>v-bind & v-model サンプル</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h2>v-model：入力欄とデータをつなぐ</h2>
+    <input type="text" v-model="message">
+    <p>入力されたメッセージ：{{ message }}</p>
+
+    <h2>v-bind：データを属性にバインドする</h2>
+    <a :href="link" target="_blank">このリンクを開く</a>
+    <p>現在のリンク先：{{ link }}</p>
+
+    <h2>入力した文字でリンク先が変わる！（v-model と v-bind の組み合わせ）</h2>
+    <input type="text" v-model="link" placeholder="https://example.com">
+  </div>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          message: 'こんにちは！',
+          link: 'https://www.google.com'
+        }
+      }
+    });
+    app.mount('#app');
+  </script>
+</body>
+</html>
